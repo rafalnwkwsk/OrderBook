@@ -1,4 +1,7 @@
-set(HEADERS
+set(SOURCES
+        Book.cpp
+        Limit.cpp
+        Order.cpp
         Book.h
         Limit.h
         Order.h
@@ -6,10 +9,9 @@ set(HEADERS
         Types.h
 )
 
-set(SOURCES
-        Book.cpp
-        Limit.cpp
-        Order.cpp
-)
+add_library(${CMAKE_PROJECT_NAME}_lib STATIC ${SOURCES})
 
-add_library(${CMAKE_PROJECT_NAME}_lib STATIC ${HEADERS} ${SOURCES})
+target_include_directories(${CMAKE_PROJECT_NAME}_lib 
+    PUBLIC 
+        ${CMAKE_CURRENT_SOURCE_DIR}
+)

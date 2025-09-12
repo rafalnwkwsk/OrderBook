@@ -14,8 +14,8 @@ std::vector<std::string> split(const std::string &line, char delimiter) {
 	return tokens;
 }
 
-void write_final_order_book(Book& book) {
-	std::ofstream file("C:\\Users\\Timothe\\Documents\\Projects\\OrderBook\\demo\\final_order_book.csv");
+void write_final_order_book(Book& book, const std::string& output_file) {
+	std::ofstream file(output_file);
 	if (!file.is_open()) {
 		std::cerr << "Error opening file.\n";
 		return;
@@ -27,8 +27,8 @@ void write_final_order_book(Book& book) {
 		file << limit.first << ",SELL,"<< limit.second->get_total_volume() << "\n";
 }
 
-void demo() {
-	std::ifstream file("C:\\Users\\Timothe\\Documents\\Projects\\OrderBook\\demo\\sample_operations.csv");
+void demo(const std::string& input_file, const std::string& output_file) {
+	std::ifstream file(input_file);
 	if (!file.is_open()) {
 		std::cerr << "Error opening file.\n";
 		return;
@@ -62,5 +62,5 @@ void demo() {
 
 	file.close();
 
-	write_final_order_book(book);
+	write_final_order_book(book, output_file);
 }

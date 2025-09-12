@@ -1,12 +1,13 @@
 cmake_minimum_required(VERSION 3.28)
 project(OrderBook)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_CXX_STANDARD 20)
-add_executable(${CMAKE_PROJECT_NAME}_run main.cpp)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-include_directories(src)
 add_subdirectory(src)
-add_subdirectory(tests)
 add_subdirectory(demo)
+add_subdirectory(tests)
 
-target_link_libraries(${CMAKE_PROJECT_NAME}_run ${CMAKE_PROJECT_NAME}_lib demo_lib)
+add_executable(${CMAKE_PROJECT_NAME}_run main.cpp)
+target_link_libraries(${CMAKE_PROJECT_NAME}_run demo_lib)

@@ -1,3 +1,6 @@
-add_library(demo_lib demo.cpp)
+add_library(demo_lib STATIC demo.cpp)
 
-target_link_libraries(demo_lib ${CMAKE_PROJECT_NAME}_lib)
+target_link_libraries(demo_lib 
+    PUBLIC 
+        ${CMAKE_PROJECT_NAME}_lib
+)
