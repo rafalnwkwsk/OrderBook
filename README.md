@@ -20,7 +20,7 @@ The Limit Order Book is designed using a combination of data structures to optim
 
 To assess performance, the system was tested with 1,000,000 operations (place or delete orders), generated using a Python script. These operations were processed through a CSV parser and fed into the C++ program.
 
-- **High-Performance**: The system achieved a peak performance of **450,000 operations per second**. Operations include order insertions, trades, and order deletions.
+- **High-Performance**: The system achieved a peak performance of **600,000 operations per second**. Operations include order insertions, trades, and order deletions.
 
 ## Build Instructions
 
