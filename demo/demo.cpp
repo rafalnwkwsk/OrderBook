@@ -36,12 +36,12 @@ void demo(const std::string& input_file, const std::string& output_file) {
 
 	Book book;
 	std::uint64_t nb_op = 0;
-	std::chrono::time_point<std::chrono::system_clock> start, end;
+	std::chrono::time_point<std::chrono::steady_clock> start, end;
 
 	std::string line;
 	std::getline(file, line);
 
-	start = std::chrono::system_clock::now();
+	start = std::chrono::steady_clock::now();
 	while (std::getline(file, line)) {
 		std::vector<std::string> fields = split(line, ',');
 
@@ -54,7 +54,7 @@ void demo(const std::string& input_file, const std::string& output_file) {
 			nb_op++;
 		}
 	}
-	end = std::chrono::system_clock::now();
+	end = std::chrono::steady_clock::now();
 	std::chrono::duration<double> elapsed_seconds = end - start;
 
 	std::cout << "Elapsed time: " << elapsed_seconds.count() << "s" << std::endl;
