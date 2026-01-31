@@ -1,11 +1,10 @@
-from numpy import random as np_random
 import random
 import csv
 
 
 def get_random_price(mean, scale, side):
     # return max(1, int((np_random.normal(mean, scale) + np_random.normal(mean, scale * .025) + np_random.normal(mean, scale * .05)) / 3))
-    return max(1, int(np_random.normal(mean * (1 + .5 * (side - .5)), scale)))
+    return max(1, int(random.gauss(mean * (1 + .5 * (side - .5)), scale)))
 
 
 def generate_order_id(used_order_ids):
@@ -20,7 +19,7 @@ def generate_order(used_order_ids):
     order_id = generate_order_id(used_order_ids)
     order_side = 0 if random.choice(["BUY", "SELL"]) == "BUY" else 1
     price = get_random_price(500, 100, order_side)
-    volume = max(1, int(np_random.normal(loc=100, scale=300)))
+    volume = max(1, int(random.gauss(100, 300)))
     return order_id, 0, order_side, price, volume
 
 
